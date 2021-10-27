@@ -25,9 +25,9 @@ When using the **EventBus.getAsync** method on the event bus we need somehow not
 
 Install the package with you're favorite package manager:
 ```
-npm install benmizrahi/reactivejs 
+npm install @providersjs/reactivejs
 OR
-yarn add benmizrahi/reactivejs
+yarn add @providersjs/reactivejs
 ```
 
 After having the package installed under you're project - you should define some environment variables to tell the events bus how to behave in this service - here is a list of environment variables need to be defined:
