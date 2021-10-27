@@ -49,7 +49,10 @@ After having the package installed under you're project - you should define some
 After having all mandatory environment variables defined - we can start using the package interface and communicate with the EventBus. To init the bus and start all communications via consumer/producers and Redis write the following action on you're index file to init the bus:
 ```
 import { EventBus } from  '@reactivejs/packages'
-await EventBus.init()
+async function run() {
+   await EventBus.init()
+}
+run().catch(console.error)
 ```
 
 ### EventBus Interfaces & Methods:
