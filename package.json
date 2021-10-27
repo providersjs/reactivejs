@@ -1,5 +1,5 @@
 {
-  "name": "@onlycode/reactivejs",
+  "name": "@providersjs/reactivejs",
   "version": "1.0.0",
   "description": "### Event Bus implementation for NodeJs micro-services made with :heart_on_fire: :brain: :computer:",
   "main": "dist/index.js",
@@ -38,10 +38,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benmizrahi/reactivejs.git"
+    "url": "git+https://github.com/providersjs/reactivejs.git"
   },
   "bugs": {
-    "url": "https://github.com/benmizrahi/reactivejs/issues"
+    "url": "https://github.com/providersjs/reactivejs/issues"
   },
-  "homepage": "https://github.com/benmizrahi/reactivejs#readme"
+  "homepage": "https://github.com/providersjs/reactivejs#readme"
 }
