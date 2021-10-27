@@ -1,5 +1,5 @@
 {
-  "name": "testmicrojs",
+  "name": "test-reactivejs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@microjs/packages": "github:benmizrahi/microjs",
-    "microjs": "^1.0.0"
+    "@providersjs/reactivejs": "^1.0.2"
   }
 }
