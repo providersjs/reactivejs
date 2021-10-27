@@ -98,38 +98,38 @@ All of the above methods are publishing methods - now let's make the service rea
 
 interface IBusReactiveParams {
 
-	// Domain of this action, not mendetory means that we can react to global actions.
-	domain?: string 
+  // Domain of this action, not mendetory means that we can react to global actions.
+  domain?: string 
 
-	// The action that this method will be handle.
-	action: string
+  // The action that this method will be handle.
+  action: string
 
-	// Should reset the consumer to latest offset in the topic
-	resetToLatest?: boolean;
+  // Should reset the consumer to latest offset in the topic
+  resetToLatest?: boolean;
 
-	//should reset the consumer to earliest in the topic
-	resetToEarliest?: boolean;
+  //should reset the consumer to earliest in the topic
+  resetToEarliest?: boolean;
 
-	//Auto create topic - if needed.
-	autoCreate?: boolean;
+  //Auto create topic - if needed.
+  autoCreate?: boolean;
 
-	// number of partitions for this topic (default 7)
-	numberOfPartitions?: number
+  // number of partitions for this topic (default 7)
+  numberOfPartitions?: number
 
-	//nu,ber of replication for this topic (default 3)
-	replicationFactor?: number
+  //nu,ber of replication for this topic (default 3)
+  replicationFactor?: number
 
-	// allow the message to get an array of json message
-	// ** important in this case the message results will not be handled.
-	// the client need to publish messages via the EventBus
-	isBatch?: boolean;
+  // allow the message to get an array of json message
+  // ** important in this case the message results will not be handled.
+  // the client need to publish messages via the EventBus
+  isBatch?: boolean;
 
-	//Defined in [KafkaJs](https://kafka.js.org/docs/consuming#a-name-options-a-options)
-	consumerParams?:any
+  //Defined in [KafkaJs](https://kafka.js.org/docs/consuming#a-name-options-a-options)
+  consumerParams?:any
 
-	//JSON orAVRO
-	//Default message format is
-	messageFormat?: MessageFormat;
+  //JSON orAVRO
+  //Default message format is
+  messageFormat?: MessageFormat;
 }
 
 export interface IEventBusMessage {
@@ -172,25 +172,25 @@ import { EventBus, ActionReact, IEventBusMessage } from  '@reactivejs/packages'
 //single action per message in the topic
 @ActionReact({ action: 'submitted', domain: 'orders' })
 submitted = (message: IEventBusMessage) => {
-	const { message } = message.payload
-	console.log(message) // only handles the message no return value
+  const { message } = message.payload
+  console.log(message) // only handles the message no return value
 }
 
 //handle batch of messages in the topic
 @ActionReact({ action: 'submitted', domain: 'orders', isBatch: true })
 submitted = (messages: IEventBusMessage[],heartbeat , isRunning, isStale, resolveOffset) => {
-	for (const message in messages) {
-	  const { message } = message.payload
-	  console.log(message) // only handles the message no return value
-	  resolveOffset(message.technicalOffset); //commit the message to Kafka
-	  await heartbeat();
-	}
+  for (const message in messages) {
+    const { message } = message.payload
+    console.log(message) // only handles the message no return value
+    resolveOffset(message.technicalOffset); //commit the message to Kafka
+    await heartbeat();
+  }
 }
 
 @ActionReact({ action: 'get', domain: 'orders' })
 submitted = (message: IEventBusMessage) => {
-	const { message } = message.payload
-	return 'message + get'  // will be the result of the request via asyncGet
+  const { message } = message.payload
+  return 'message + get'  // will be the result of the request via asyncGet
 }
 ```
 
