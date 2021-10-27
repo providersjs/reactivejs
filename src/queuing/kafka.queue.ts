@@ -184,7 +184,7 @@ export class KafkaQueue implements IQueue {
         const isStillNeedToPublishError = await this.caching.get(`${message.key.toString()}`)
         if (isStillNeedToPublishError) {
           //will publish error to the subscriber to pop the message up to the client service
-          await this.caching.publish(`${message.key.toString()}`, JSON.stringify({ err: err.message }));
+          await this.caching.publish(`${message.key.toString()}`, JSON.stringify({ err: err }));
         }
         await this.publish(`${topic}_dlq`, message.key, message) //publish to dlq
         await this.caching.delete(messageRetryKey) //delete the unique key
