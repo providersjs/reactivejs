@@ -1,0 +1,3 @@
+KAFKA_SERVICE_NAME=order-service
+KAFKA_GROUP=order-service-group
+KAFKA_BROKER=localhost:29093

@@ -1,0 +1,3 @@
+KAFKA_SERVICE_NAME=client-service
+KAFKA_GROUP=client-service-group
+KAFKA_BROKER=localhost:29093

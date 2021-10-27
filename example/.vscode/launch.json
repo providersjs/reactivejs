@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "nodemon",
+        "restart": false,
+        "console": "externalTerminal",
+        "name": "Client Service",
+        "outputCapture": "std",
+        "envFile": "${workspaceFolder}/.client-env",
+        "skipFiles": [
+          "<node_internals>/**",
+          "node_modeles",
+          "dist"
+        ],
+        "args": [
+          "--verbose",
+          "client-service.js"
+        ],
+        "resolveSourceMapLocations": [
+          "${workspaceFolder}/**",
+          "!**/node_modules/**"
+        ],
+        "cwd": "${workspaceFolder}/dist/"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "nodemon",
+        "restart": false,
+        "name": "Order Service",
+        "outputCapture": "std",
+        "envFile": "${workspaceFolder}/.order-env",
+        "skipFiles": [
+          "<node_internals>/**",
+          "node_modeles",
+          "dist"
+        ],
+        "args": [
+          "--verbose",
+          "order-service.js"
+        ],
+        "resolveSourceMapLocations": [
+          "${workspaceFolder}/**",
+          "!**/node_modules/**"
+        ],
+        "cwd": "${workspaceFolder}/dist/"
+      }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitUseStrict": false,
+    "allowJs": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "lib": ["es5", "es6", "dom"],
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
