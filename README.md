@@ -11,10 +11,6 @@ reactivejs uses **Redis** and **Kafka** as an infrastructure to pass messages an
 
 To see an actual working example please see the following  [README.md](https://github.com/benmizrahi/reactivejs/blob/main/example/) under the example folder.
 
-#### Design to scale
-The main idea this package and any other event-driven architecture should follow is that messages are async by design and each message can be processed exactly-once. another thing to keep in maid is the ordering - when stating to implement this kind of design remember there is no ordering for consuming messages - so the publishing order will not be the order of consuming - especially with multiple replicas handling lot's of events.
-
-
 #### How two-way communication works - simple but powerful:
 
 When using the **EventBus.getAsync** method on the event bus we need somehow not only to populate the message into the relevant topic but we need also to get the respond back  and resolve the promise - to do so reactivejs uses Redis for publish-subscribe pattern. here you can see the the event-flow under the hood:
