@@ -1,6 +1,6 @@
 {
   "name": "@providersjs/reactivejs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Event Bus implementation for NodeJs micro-services made with :heart_on_fire: :brain: :computer:",
   "main": "dist/index.js",
   "dependencies": {
