@@ -147,7 +147,7 @@ export class KafkaQueue implements IQueue {
     const jsonBatch = messages.map((message) => {
       //@ts-ignore
       const payload = JSON.parse(message.value.toString())
-      payload.technicalKey = message.key.toString();
+      payload.technicalKey = message.key ? message.key.toString() : null;
       payload.technicalOffset = message.offset;
       payload.partition = partition;
       return payload;
