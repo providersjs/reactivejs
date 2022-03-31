@@ -138,11 +138,11 @@ class KafkaQueue {
                 if (cb) {
                     //@ts-ignore
                     const payload = JSON.parse(message.value.toString());
-                    payload.technicalKey = message.key.toString();
+                    payload.technicalKey = message.key ? message.key.toString() : null;
                     payload.technicalOffset = message.offset;
                     payload.partition = partition;
                     const res = yield cb(payload);
-                    const shouldPublishResult = yield this.caching.get(`${message.key.toString()}`);
+                    const shouldPublishResult = message.key && (yield this.caching.get(`${message.key.toString()}`));
                     if (shouldPublishResult) { //check if I should publish result
                         yield this.caching.publish(`${message.key.toString()}`, res ? JSON.stringify(res) : JSON.stringify({}));
                     }

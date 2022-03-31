@@ -162,11 +162,11 @@ export class KafkaQueue implements IQueue {
       if (cb) {
         //@ts-ignore
         const payload = JSON.parse(message.value.toString())
-        payload.technicalKey = message.key.toString();
+        payload.technicalKey = message.key ? message.key.toString() : null;
         payload.technicalOffset = message.offset;
         payload.partition = partition;
         const res = await cb(payload)
-        const shouldPublishResult = await this.caching.get(`${message.key.toString()}`)
+        const shouldPublishResult = message.key && await this.caching.get(`${message.key.toString()}`)
         if (shouldPublishResult) {//check if I should publish result
           await this.caching.publish(`${message.key.toString()}`,res ? JSON.stringify(res) : JSON.stringify({}));
         }
